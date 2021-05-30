@@ -7,12 +7,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from '../shared/shared.module';
 import { BoardListComponent } from './board-list/board-list.component';
 import { KanbanRoutingModule } from './kanban-routing.module';
+import { BoardComponent } from './board/board.component';
 
 
 
 @NgModule({
   declarations: [
-    BoardListComponent
+    BoardListComponent,
+    BoardComponent
   ],
   imports: [
     CommonModule,
