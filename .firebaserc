@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "firestarteddemo": {
+      "hosting": {
+        "firestarter-demo": [
+          "firestarteddemo"
+        ]
+      }
+    }
+  }
+}
