@@ -21,9 +21,7 @@ import { BoardService } from '../board.service';
         [(ngModel)]="data.task.label"
       >
         <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt">
-          <mat-icon [ngClass]="opt">{{
-            opt === 'gray' ? 'check_circle' : 'lens'
-          }}</mat-icon>
+          <mat-icon [class]="opt">{{ opt === data.task.label ? 'check_circle' : 'lens' }}</mat-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
