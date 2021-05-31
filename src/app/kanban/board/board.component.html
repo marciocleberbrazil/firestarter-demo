@@ -1,12 +1,14 @@
 <mat-card class="outer-card">
-  <mat-card-header>
+  <mat-card-header class="board-header">
     <!-- Slot for the handle -->
     <ng-content></ng-content>
     <mat-card-title>
-      {{ board.title }}
+      <button mat-button (click)="openBoardDialog(board)">
+        {{ board.title }}
+      </button>
     </mat-card-title>
     <mat-card-subtitle>
-      {{ board.id }}
+      {{ board.description }}
     </mat-card-subtitle>
   </mat-card-header>
 

@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Board, Task } from '../board.model';
 import { BoardService } from '../board.service';
+import { BoardDialogComponent } from '../dialogs/board-dialog.component';
 import { TaskDialogComponent } from '../dialogs/task-dialog.component';
 
 @Component({
@@ -42,6 +43,20 @@ export class BoardComponent {
           update.splice(result.idx, 1, result.task);
           this.boardService.updateTasks(this.board.id!, this.board.tasks!);
         }
+      }
+    });
+  }
+
+  openBoardDialog(board: Board): void {
+    const dialogRef = this.dialog.open(BoardDialogComponent, {
+      width: '500px',
+      data: { board: { ...board }, isNew: false, boardId: this.board.id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result) {
+        this.boardService.updateBoard(result.board);
       }
     });
   }

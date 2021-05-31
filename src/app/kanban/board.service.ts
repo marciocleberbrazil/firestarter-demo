@@ -25,6 +25,19 @@ export class BoardService {
   }
 
   /**
+   * Updates a board
+   */
+    async updateBoard(data: Board) {
+      const user = await this.afAuth.currentUser;
+      return this.db.collection('boards')
+        .doc(data.id)
+        .update({
+          title: data.title,
+          description: data.description
+        });
+    }
+
+  /**
    * Delete board
    */
   deleteBoard(boardId: string) {

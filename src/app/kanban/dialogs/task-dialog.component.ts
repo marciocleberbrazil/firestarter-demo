@@ -26,6 +26,8 @@ import { BoardService } from '../board.service';
       </mat-button-toggle-group>
     </div>
     <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      
       <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
         {{ data.isNew ? 'Add Task' : 'Update Task' }}
       </button>

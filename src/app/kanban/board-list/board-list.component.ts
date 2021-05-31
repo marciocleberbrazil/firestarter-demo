@@ -34,15 +34,17 @@ export class BoardListComponent implements OnInit, OnDestroy {
   }
   
   openBoardDialog(): void {
+    
     const dialogRef = this.dialog.open(BoardDialogComponent, {
       width: '400px',
-      data: {  }
+      data: { board: { title: '', description: '' }, isNew: true }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.boardService.createBoard({
-          title: result,
+          title: result.board.title,
+          description: result.board.description,
           priority: this.boards.length
         });
       }
